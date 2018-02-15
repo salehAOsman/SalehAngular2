@@ -16,10 +16,10 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            //ulf Confirm here library module up down 
+            //Ulf Confirm here library module up down 
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [app_component_1.AppComponent],
         })
     ], AppModule);
     return AppModule;

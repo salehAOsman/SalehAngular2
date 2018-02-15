@@ -12,8 +12,19 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.name = 'Angular';
         this.foo = 'another one';
-        this.someNames = ['ulf', 'Kent', 'Erik', 'Fredrik']; //Array 
+        this.search = ''; //we display variable from 'app.component.html' '<input type="text" [(ngModel)]="search" />' 
+        this.someNames = ['Ulf', 'Kent', 'Erik', 'Fredrik']; //Array   here 'someNames' is like db reference
+        this.sNames = this.someNames; //search name
     }
+    //here is method like controller 
+    AppComponent.prototype.Search = function () {
+        var _this = this;
+        //check search if ='' or not
+        //console.log('Ulf');
+        if (this.search != '') {
+            this.sNames = this.someNames.filter(function (n) { return n == _this.search; }); //this is like Find() in c#;
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

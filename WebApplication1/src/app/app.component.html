@@ -1,8 +1,17 @@
 ﻿
-<h1>Hello {{num}} and {{foo}}</h1>
-<h2>1+{{num}}={{1+num}}</h2>
-<input type="Number" name="name1" value="10" />
+<h1>Hello {{name}} and {{foo}}</h1>
+<h3> 1 + 2 ={{ 1 + 2 }}</h3>
+
+<input type="text"  [(ngModel)]="search" /><!---data binding model two way -->
+<button (click)="Search()"> Search </button><!---add button here    send html to data -->
 <ul>
-    <li *ngFor="let aName of someNames">{{aName}}</li> <!--foreach "let"   here  item=aName  -->
+    <li *ngFor="let aName of sNames">{{aName}}</li> <!--foreach "let"   here  item=aName  -->
 </ul>
+
+<div>
+    <input type="number" value="0" [(ngModel)]="num" />
+    <input type="number" value="0" [(ngModel)]="num" />
+    <h2 *ngIf="num!=null"> 5 + {{num}} = {{ 5 + num }} </h2> <!-- If statment be carfauly no empty in '"num!=null"' -->
+</div>
+
 
