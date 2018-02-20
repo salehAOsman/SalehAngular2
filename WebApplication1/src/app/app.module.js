@@ -8,7 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-//Ulf add module as library 
+//7 Angular ajax we will add down in '@NgModule'
+var http_1 = require("@angular/http"); //Get post Ajax and added 'HttpModule' and we go to app.comonent.spec.ts to add 
+//Ulf add module as library
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var AppModule = /** @class */ (function () {
@@ -17,7 +19,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         core_1.NgModule({
             //Ulf Confirm here library module up down 
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent],
         })

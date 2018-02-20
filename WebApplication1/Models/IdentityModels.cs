@@ -29,5 +29,9 @@ namespace WebApplication1.Models
         {
             return new ApplicationDbContext();
         }
+        //Saleh 5* added here to fix of People reference in controller
+        public DbSet<Person> People { get; set; }
+        //saleh 6*  Go to MP>  enable migration and update database
+        // Saleh 7* go to Configrations.cs Seed  and add info there  
     }
 }

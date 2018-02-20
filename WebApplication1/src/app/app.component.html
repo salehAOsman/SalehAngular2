@@ -2,7 +2,7 @@
 <h1>Hello {{name}} and {{foo}}</h1>
 <h3> 1 + 2 ={{ 1 + 2 }}</h3>
 
-<input type="text"  [(ngModel)]="search" /><!---data binding model two way -->
+<input type="text" [(ngModel)]="search" /><!---data binding model two way -->
 <button (click)="Search()"> Search </button><!---add button here    send html to data -->
 <ul>
     <li *ngFor="let aName of sNames">{{aName}}</li> <!--foreach "let"   here  item=aName  -->
@@ -14,4 +14,14 @@
     <h2 *ngIf="num!=null"> 5 + {{num}} = {{ 5 + num }} </h2> <!-- If statment be carfauly no empty in '"num!=null"' -->
 </div>
 
+<!--coe here from app.component.ts  line 46 to disply json object as people -->
+<!--it is foreach here it has to be same name in people -->
+<!--we can draw here table this is here just foreach-->
+<!--the name of method json in app.component.js -->
 
+<!--saleh 20* go to app.component.html to  display object people in app.component.html side-->
+<button (click)="GetPeople()">GetPeople</button>
+<ul>
+    <li *ngFor="let aPerson of people"> Id:{{aPerson.Id}} Name:{{aPerson.Name}} Age:{{aPerson.Age}}</li>
+</ul>
+<!--NOW WE CAN RUN TO SEE LIST op people-->
