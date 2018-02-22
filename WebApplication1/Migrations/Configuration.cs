@@ -19,7 +19,6 @@ namespace WebApplication1.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
-            //
 
 
             //Saleh 7* we uncomment this to add som information here 

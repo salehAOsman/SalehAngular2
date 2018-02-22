@@ -1,4 +1,14 @@
 ﻿
+<div class="row">
+    <div class="col-md-8">
+       <!--we can put table here -->
+    </div>
+    <div class="col-md-4">
+        <!--we can put here button or edit box-->
+    </div>
+</div>
+
+
 <h1>Hello {{name}} and {{foo}}</h1>
 <h3> 1 + 2 ={{ 1 + 2 }}</h3>
 
@@ -18,10 +28,52 @@
 <!--it is foreach here it has to be same name in people -->
 <!--we can draw here table this is here just foreach-->
 <!--the name of method json in app.component.js -->
-
 <!--saleh 20* go to app.component.html to  display object people in app.component.html side-->
 <button (click)="GetPeople()">GetPeople</button>
 <ul>
     <li *ngFor="let aPerson of people"> Id:{{aPerson.Id}} Name:{{aPerson.Name}} Age:{{aPerson.Age}}</li>
 </ul>
 <!--NOW WE CAN RUN TO SEE LIST op people-->
+<!--**3 we can display this list as bautifaull display by bootstrap-->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+    </thead>
+    <tbody>
+        <!--**8 we add new code onclick for edit-->
+        <tr *ngFor="let aPerson of people" (click)="onSelect(aPerson)">
+            <!--**8 when I click on row then we have to
+            display this row as item of list and call it by 'onSelect()' method from 'component.ts'
+                                    now we go to src app and creat new ts. file to create folder inside app folder and inside it tow files   as 'person.Edit.component.ts' and one 'person.Edit.component.html'  to do edit for row **9-->
+            <td>{{aPerson.Id}}</td>
+            <td>{{aPerson.Name}}</td>
+            <td>{{aPerson.Age}}</td>
+        </tr>
+    </tbody>
+</table>
+<!--**5 here we will display newPerson as default-->
+<div>
+    <input [(ngModel)]="newPerson.Id" type="number" name="Id" value="0" min="0" max="210000000" placeholder="Id" />
+    <input [(ngModel)]="newPerson.Name" type="text" name="Name" value="" placeholder="Name" />
+    <input [(ngModel)]="newPerson.Age" type="number" name="Age" value="0" min="0" max="150" placeholder="Age" />
+    <button (click)="CreatePerson()">Create</button> <!--**5 we need to create method for this button in app.component.ts-->
+</div>
+<!--**8 go to component.html to drow this edit then go up to tbody to click onSelect -->
+<div *ngIf="selectedPerson">
+    <div>
+        <p>{{selectedPerson.Name}}</p>
+    </div>
+</div>
+
+<!--**12 I will tack selector go 'my-person-edit' from my .ts  and past it in 'app.component.html' side-->
+<div *ngIf="selectedPerson">
+    <div>
+        <!--we have here selctor refer to here and personEdit  is as input value -->
+        <my-person-edit [personEdit]="selectedPerson"></my-person-edit>
+        <!--we have to go to module to tell we have new component -->
+    </div>
+</div>

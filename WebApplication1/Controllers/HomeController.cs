@@ -37,10 +37,28 @@ namespace WebApplication1.Controllers
 
             return Json(db.People.ToList(), JsonRequestBehavior.AllowGet);
             //Saleh 3* click F12 to jump to identityModels.cs to add DbSet for People class
-            
-            
+        }
 
-          
+        //**6 we create here method CreatePerson
+        public JsonResult CreatePerson(Person person)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();//we need object to fitch data base this is db
+            db.People.Add(person);//we add this object to data base 
+            db.SaveChanges();
+            return Json(person, JsonRequestBehavior.AllowGet); //add 
+        }
+
+        //**13 We will add here 
+
+        public JsonResult EditPerson(Person person)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();//we need object to fitch data base this is db
+            Person OldPerson = db.People.SingleOrDefault(p => p.Id == person.Id);
+
+            OldPerson.Name = person.Name;
+            OldPerson.Age = person.Age;
+            db.SaveChanges();
+            return Json(person, JsonRequestBehavior.AllowGet); //add 
         }
     }
 }
